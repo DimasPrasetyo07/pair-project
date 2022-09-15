@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+</head>
+<body>
+    <h1>ShoPai Product Detail</h1>
+    <p1>Product Name: <br>
+        <%=result.name%> </p1><br><br>
+    <p2>Product Description: <br>
+        <%=result.description%></p2><br><br>
+    <p3>Price: <br>
+        <%=convertToRupiah(result.price)%></p3><br><br>
+    <p4>Stock: <br>
+        <%=result.stock%></p4><br><br>
+    
+    <a href="/product/<%=result.id%>/buy"><button>Buy</button></a>
+    <a href="/product/<%=result.id%>/delete"><button>Delete Product</button></a>
+
+    
+    
+</body>
+</html>

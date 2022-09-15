@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
@@ -18,8 +18,62 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Product name is required'
+        },
+        notEmpty: {
+          msg: 'Product name is required'
+        }
+      }
+    },
+    description: {
+      type:DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Product description is required'
+        },
+        notEmpty: {
+          msg: 'Product description is required'
+        }
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Product price is required'
+        },
+        notEmpty: {
+          msg: 'Product price is required'
+        },
+        min: {
+          args: 1,
+          msg: 'Minimum price is Rp. 1'
+        }
+      }
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Product stock is required'
+        },
+        notEmpty: {
+          msg: 'Product stock is required'
+        },
+        min: {
+          args: 1,
+          msg: 'Minimum stock is 1'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Product',

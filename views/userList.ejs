@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ShoPai User List</h1>
+
+    <table border="2">
+        <tr>
+          <th>No.</th>  
+          <th>Name</th>
+          <th>Phone</th>
+          <th>NIK</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+        <% result.forEach((el, i) => {%>
+            <tr>
+              <td><%= i + 1%> </td>
+              <td><%=el.name%></td>
+              <td><%=el.phone%></td>
+              <td><%=el.nik%></td>
+              <td><%=el.User.username%></td>
+              <td><%=el.User.email%></td>
+              <td><%=el.User.role%></td>
+            </tr>
+
+        <%}) %> 
+      </table>
+
+</body>
+</html>
