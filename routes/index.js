@@ -1,9 +1,10 @@
 const express = require('express')
-// const Controller = require('../controllers/controller')
+const ContHome = require('../controller/contHome')
 const router = express.Router()
+const userRoutes = require('./user')
 
-router.get('/', (req, res) => {
-    res.send('tes routing pair projek')
-})
+router.get('/', ContHome.home)
+router.use('/user', userRoutes)
+
 
 module.exports = router
